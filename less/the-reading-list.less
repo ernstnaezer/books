@@ -1,0 +1,359 @@
+@import "variables.less";
+@import "mixins.less";
+
+// Global Components
+
+body {
+	.sans-serif;
+	font-size: 20px;
+	color: @gray-dark;
+}
+
+// -- Typography
+
+p {
+	line-height: 1.5;
+	margin: 24px 0;
+	a {
+		text-decoration: underline;
+	}
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	.sans-serif;
+	font-weight: 800;
+}
+
+a {
+	color: @gray-dark;
+	&:hover,
+	&:focus {
+		color: @brand-primary;
+	}
+}
+
+blockquote {
+	color: @gray;
+	font-style: italic;
+}
+
+hr.small {
+	max-width: 100px;
+	margin: 15px auto;
+	border-width: 4px;
+	border-color: white;
+}
+
+// Navigation
+
+.navbar-custom {
+	background: white;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 3;
+	text-transform: capitalize;;
+	.sans-serif;
+	.navbar-brand {
+		font-weight: 800;
+	}
+	.nav {
+		li {
+			a {
+				text-transform: uppercase;
+				font-size: 12px;
+				font-weight: 800;
+				letter-spacing: 1px;
+			}
+		}
+	}
+	@media only screen and (min-width: 768px) {
+		background: transparent;
+		border-bottom: 1px solid transparent;
+		.navbar-brand {
+			color: white;
+			padding: 20px;
+			&:hover,
+			&:focus {
+				color: @white-faded;
+			}
+		}
+		.nav {
+			li {
+				a {
+					color: white;
+					padding: 20px;
+					&:hover,
+					&:focus {
+						color: @white-faded;
+					}
+				}
+			}
+		}
+	}
+	@media only screen and (min-width: 1170px) {
+		-webkit-transition: background-color 0.3s;
+		-moz-transition: background-color 0.3s;
+		transition: background-color 0.3s;
+		/* Force Hardware Acceleration in WebKit */
+		-webkit-transform: translate3d(0, 0, 0);
+		-moz-transform: translate3d(0, 0, 0);
+		-ms-transform: translate3d(0, 0, 0);
+		-o-transform: translate3d(0, 0, 0);
+		transform: translate3d(0, 0, 0);
+		-webkit-backface-visibility: hidden;
+		backface-visibility: hidden;
+		&.is-fixed {
+			/* when the user scrolls down, we hide the header right above the viewport */
+			position: fixed;
+			top: -61px;
+			background-color: fade(white, 90%);
+			border-bottom: 1px solid darken(white, 5%);
+			-webkit-transition: -webkit-transform 0.3s;
+			-moz-transition: -moz-transform 0.3s;
+			transition: transform 0.3s;
+			.navbar-brand {
+				color: @gray-dark;
+				&:hover,
+				&:focus {
+					color: @brand-primary;
+				}
+			}
+			.nav {
+				li {
+					a {
+						color: @gray-dark;
+						&:hover,
+						&:focus {
+							color: @brand-primary;
+						}
+					}
+				}
+			}
+		}
+		&.is-visible {
+			/* if the user changes the scrolling direction, we show the header */
+			-webkit-transform: translate3d(0, 100%, 0);
+			-moz-transform: translate3d(0, 100%, 0);
+			-ms-transform: translate3d(0, 100%, 0);
+			-o-transform: translate3d(0, 100%, 0);
+			transform: translate3d(0, 100%, 0);
+		}
+	}
+}
+
+// Header
+
+.intro-header {
+	background: no-repeat center center;
+	background-color: @gray;
+	background-attachment: scroll;
+	.background-cover;
+	// NOTE: Background images are set within the HTML using inline CSS!
+	margin-bottom: 50px;
+	.site-heading,
+	.post-heading,
+	.page-heading {
+		padding: 100px 0 50px;
+		color: white;
+		@media only screen and (min-width: 768px) {
+			padding: 150px 0;
+		}
+	}
+	.site-heading,
+	.page-heading {
+		h1 {
+			text-transform: capitalize;;
+			margin-top: 0;
+			font-size: 40px;
+		}
+		.subheading {
+			font-size: 20px;
+			line-height: 1.1;
+			display: block;
+			.serif;
+			font-weight: 300;
+			margin: 10px 0 0;
+		}
+	}
+
+	.site-heading{
+		text-align: center;
+		.subheading {
+			.sans-serif;
+			font-size: 30px;
+		}
+	}
+
+	@media only screen and (min-width: 768px) {
+		.site-heading {
+			h1 {
+				font-size: 80px;
+			}
+		}
+		.page-heading {
+			h1 {
+				font-size: 60px;
+			}
+		}
+	}
+}
+
+.post-heading {
+	h1 {
+		font-size: 35px;
+	}
+	.subheading,
+	.meta {
+		line-height: 1.1;
+		display: block;
+	}
+	.subheading {
+		.sans-serif;
+		font-size: 24px;
+		margin: 10px 0 30px;
+		font-weight: 600;
+	}
+	.meta {
+		.serif;
+		font-style: italic;
+		font-size: 14px;
+	}
+	@media only screen and (min-width: 768px) {
+		h1 {
+			font-size: 55px;
+		}
+		.subheading {
+			font-size: 30px;
+		}
+	}
+}
+
+.post-content{
+	.serif;
+}
+
+// Post Preview Pages
+.post-preview {
+	margin: 0 2em;
+	> a {
+		color: @gray-dark;
+		&:hover,
+		&:focus {
+			text-decoration: none;
+			color: @brand-primary;
+		}
+		> .post-subtitle {
+			margin: 0.3em 0;
+			line-height: 1.2em;
+			font-size: 0.8em;
+			margin-bottom: 10px;
+			max-width: 200px;
+		}
+	}
+
+	> .post-meta {
+		color: @gray;
+		font-size: 12px;
+		font-style: italic;
+		margin-top: 0;
+		> a {
+			text-decoration: none;
+			color: @gray-dark;
+			&:hover,
+			&:focus {
+				color: @brand-primary;
+				text-decoration: underline;
+			}
+		}
+	}
+	@media only screen and (min-width: 768px) {
+		> a {
+			> .post-title {
+				font-size: 36px;
+			}
+		}
+	}
+}
+
+// Sections
+
+.section-heading {
+	font-size: 36px;
+	margin-top: 60px;
+	font-weight: 700;
+}
+
+.caption {
+	text-align: center;
+	font-size: 14px;
+	padding-top: 4px;
+	font-style: italic;
+	margin: 0;
+	display: block;
+}
+
+.credits{
+	.sans-serif;
+	text-align: right;
+	font-size: 11px;
+	color:#536878;
+	line-height: 1em;
+	display: block;
+	position: absolute;
+	bottom: 2px;
+	right: 2px;
+}
+
+.center-flex {
+	display: flex;
+  justify-content: center;
+}
+
+footer {
+	padding: 50px 0 65px;
+	.list-inline {
+		margin: 0;
+		padding: 0;
+	}
+	.copyright {
+		font-size: 14px;
+		text-align: center;
+		margin-bottom: 0;
+	}
+}
+
+
+// -- Highlight Color Customization
+
+::-moz-selection {
+	color: white;
+	text-shadow: none;
+	background: @brand-primary;
+}
+
+::selection {
+	color: white;
+	text-shadow: none;
+	background: @brand-primary;
+}
+
+img::selection {
+	color: white;
+	background: transparent;
+}
+
+img::-moz-selection {
+	color: white;
+	background: transparent;
+}
+
+body {
+	webkit-tap-highlight-color: @brand-primary;
+}

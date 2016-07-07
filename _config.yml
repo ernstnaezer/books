@@ -1,0 +1,22 @@
+# Site settings
+title: the reading list
+header-img: img/home-bg.jpg
+email: ernstnaezer@gmail.com
+copyright_name: Ernst Naezer
+description: "This is the personal space of Ernst Naezer, where he keeps track of the books he's read an the remarks, thoughts and comments on them."
+baseurl: ""
+url: "http://localhost"
+twitter_username: ernstnaezer
+github_username:  ernstnaezer
+linkedin_username:  ernstnaezer
+email_username:  ernstnaezer@gmail.com
+
+# google_tracking_id:
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: pretty
+exclude: ["less","node_modules","Gruntfile.js","package.json","README.md", "js/the-reading-list.js"]
+
+gems: [jekyll-feed]
