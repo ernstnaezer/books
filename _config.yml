@@ -11,7 +11,7 @@ github_username:  ernstnaezer
 linkedin_username:  ernstnaezer
 email_username:  ernstnaezer@gmail.com
 
-# google_tracking_id:
+google_tracking_id: UA-80504926-1
 
 # Build settings
 markdown: kramdown
